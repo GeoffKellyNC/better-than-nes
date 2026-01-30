@@ -153,6 +153,43 @@ const RefreshIcon = styled.span`
   animation: ${props => props.$loading ? rotate : 'none'} 1s linear infinite;
 `;
 
+const GitHubLink = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: ${theme.spacing.xs};
+  padding: ${theme.spacing.sm} ${theme.spacing.lg};
+  background-color: ${theme.colors.background.tertiary};
+  color: ${theme.colors.text.primary};
+  border: 1px solid ${theme.colors.border};
+  border-radius: ${theme.borderRadius.md};
+  font-size: ${theme.typography.sizes.sm};
+  font-weight: ${theme.typography.weights.semibold};
+  min-height: 44px;
+  text-decoration: none;
+  transition: all ${theme.transitions.base};
+
+  &:hover {
+    background-color: ${theme.colors.background.hover};
+    border-color: ${theme.colors.accent.primary};
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  @media (max-width: ${theme.breakpoints.sm}) {
+    width: 100%;
+  }
+`;
+
+const GitHubIcon = styled.span`
+  font-size: ${theme.typography.sizes.lg};
+  line-height: 1;
+`;
+
 export const Header = ({ totalOutages, lastUpdated, onRefresh, loading }) => {
   return (
     <HeaderContainer>
@@ -179,6 +216,16 @@ export const Header = ({ totalOutages, lastUpdated, onRefresh, loading }) => {
               </InfoValue>
             </InfoItem>
           )}
+
+          <GitHubLink
+            href="https://github.com/GeoffKellyNC/better-than-nes"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View source on GitHub"
+          >
+            <GitHubIcon>⭐</GitHubIcon>
+            GitHub
+          </GitHubLink>
 
           <RefreshButton onClick={onRefresh} disabled={loading}>
             <RefreshIcon $loading={loading}>↻</RefreshIcon>
