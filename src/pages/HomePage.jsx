@@ -11,6 +11,7 @@ import { OutageMap } from '../components/OutageMap';
 import { OutageList } from '../components/OutageList';
 import { LoadingSpinner } from '../components/LoadingSpinner';
 import { StatsDashboard } from '../components/StatsDashboard';
+import { InstructionBanner } from '../components/InstructionBanner';
 
 const PageContainer = styled.div`
   min-height: 100vh;
@@ -153,6 +154,8 @@ export const HomePage = () => {
         <StatsSection>
           <StatsDashboard outages={outages} />
         </StatsSection>
+
+        <InstructionBanner />
 
         <ControlsSection>
           <SearchBar value={searchQuery} onChange={setSearchQuery} />

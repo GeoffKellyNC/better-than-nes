@@ -41,6 +41,15 @@ export const filterByStatus = (outages, statusFilter) => {
 
   return outages.filter((outage) => {
     const status = (outage.status || '').toLowerCase();
+
+    if (filterLower === 'assigned') {
+      return status === 'assigned';
+    }
+
+    if (filterLower === 'unassigned') {
+      return status === 'unassigned';
+    }
+
     return status.includes(filterLower);
   });
 };
