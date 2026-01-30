@@ -12,6 +12,8 @@ import { OutageList } from '../components/OutageList';
 import { LoadingSpinner } from '../components/LoadingSpinner';
 import { StatsDashboard } from '../components/StatsDashboard';
 import { InstructionBanner } from '../components/InstructionBanner';
+import { DisclaimerBanner } from '../components/DisclaimerBanner';
+import { Footer } from '../components/Footer';
 
 const PageContainer = styled.div`
   min-height: 100vh;
@@ -29,23 +31,23 @@ const ContentContainer = styled.main`
 const ControlsSection = styled.section`
   background-color: ${theme.colors.background.secondary};
   border-bottom: 1px solid ${theme.colors.border};
-  padding: ${theme.spacing.lg};
+  padding: ${theme.spacing.xl} ${theme.spacing.lg};
   display: flex;
   flex-direction: column;
   gap: ${theme.spacing.lg};
   align-items: center;
 
   @media (max-width: ${theme.breakpoints.md}) {
-    padding: ${theme.spacing.md};
+    padding: ${theme.spacing.lg} ${theme.spacing.md};
   }
 `;
 
 const MapSection = styled.section`
   background-color: ${theme.colors.background.primary};
-  padding: ${theme.spacing.lg};
+  padding: ${theme.spacing.xl} ${theme.spacing.lg} ${theme.spacing['2xl']};
 
   @media (max-width: ${theme.breakpoints.md}) {
-    padding: 0;
+    padding: ${theme.spacing.lg} 0;
   }
 `;
 
@@ -157,6 +159,8 @@ export const HomePage = () => {
 
         <InstructionBanner />
 
+        <DisclaimerBanner />
+
         <ControlsSection>
           <SearchBar value={searchQuery} onChange={setSearchQuery} />
           <FilterControls
@@ -171,8 +175,8 @@ export const HomePage = () => {
           <OutageMap
             outages={filteredOutages}
             addresses={addresses}
-            height="500px"
-            mobileHeight="400px"
+            height="600px"
+            mobileHeight="450px"
           />
         </MapSection>
 
@@ -182,6 +186,8 @@ export const HomePage = () => {
           title={searchQuery ? 'Search Results' : 'All Outages'}
         />
       </ContentContainer>
+
+      <Footer />
     </PageContainer>
   );
 };

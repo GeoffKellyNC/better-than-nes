@@ -24,8 +24,9 @@ const MapWrapper = styled.div`
   height: ${props => props.$height || '500px'};
   border-radius: ${theme.borderRadius.lg};
   overflow: hidden;
-  box-shadow: ${theme.shadows.md};
+  box-shadow: ${theme.shadows.xl};
   position: relative;
+  border: 2px solid ${theme.colors.border};
 
   .leaflet-container {
     width: 100%;
@@ -35,7 +36,9 @@ const MapWrapper = styled.div`
 
   @media (max-width: ${theme.breakpoints.md}) {
     height: ${props => props.$mobileHeight || '400px'};
-    border-radius: 0;
+    border-radius: ${theme.borderRadius.md};
+    border-left: none;
+    border-right: none;
   }
 `;
 
